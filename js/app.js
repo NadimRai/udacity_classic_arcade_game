@@ -23,9 +23,14 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-
+var allEnemies = [];
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
+var enemy1 = new Enemy(0, 62,2000 + Math.floor(Math.random() * 2000));
+var enemy2 = new Enemy(0, 145,2000 + Math.floor(Math.random() * 2000));
+var enemy3 =  new Enemy(0, 228,2000 + Math.floor(Math.random() * 2000));
+allEnemies.push(enemy1, enemy2, enemy3);
+console.log(allEnemies);
+
 // Place the player object in a variable called player
 
 
