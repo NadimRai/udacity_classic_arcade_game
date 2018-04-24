@@ -39,6 +39,11 @@ var Player = function(x, y, speed) {
     this.sprite = 'images/char-boy.png';
 };
 
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+var player = new Player(200, 400, 100);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
