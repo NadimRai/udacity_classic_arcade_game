@@ -43,7 +43,19 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-var player = new Player(200, 400, 100);
+var player = new Player(200, 400, 60);
+
+Player.prototype.handleInput = function(move) {
+    if(move === 'left' && this.x > 0) {
+        this.x -= this.speed + 50;
+    }else if(move === 'right' && this.x < 400){
+        this.x += this.speed + 50;
+    }else if(move === 'up' && this.y > 0){
+        this.y -= this.speed + 30;
+    }else if(move === 'down' && this.y< 400){
+        this.y += this.speed + 30;
+    }
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -55,5 +67,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    // player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[e.keyCode]);
 });
