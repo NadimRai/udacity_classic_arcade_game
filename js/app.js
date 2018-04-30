@@ -57,6 +57,13 @@ Player.prototype.handleInput = function(move) {
     }
 };
 
+Player.prototype.update = function(){
+    if (this.y < 0) {
+        this.x = 200;
+        this.y = 380;
+    }
+}
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
