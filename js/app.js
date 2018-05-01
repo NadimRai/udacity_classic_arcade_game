@@ -14,6 +14,12 @@ Enemy.prototype.update = function(dt) {
         this.x = -60;
        this.speed = 300 + Math.floor(Math.random() * 500);
     }
+
+    
+    if(this.x < player.x  && this.x + 30 > player.x && this.y < player.y + 60 && this.y + 40 > player.y) {
+        player.x = 200;
+        player.y = 380;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -43,7 +49,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-var player = new Player(200, 400, 60);
+var player = new Player(200, 380, 60);
 
 Player.prototype.handleInput = function(move) {
     if(move === 'left' && this.x > 0) {
@@ -52,7 +58,7 @@ Player.prototype.handleInput = function(move) {
         this.x += this.speed + 50;
     }else if(move === 'up' && this.y > 0){
         this.y -= this.speed + 30;
-    }else if(move === 'down' && this.y< 400){
+    }else if(move === 'down' && this.y< 380){
         this.y += this.speed + 30;
     }
 };
